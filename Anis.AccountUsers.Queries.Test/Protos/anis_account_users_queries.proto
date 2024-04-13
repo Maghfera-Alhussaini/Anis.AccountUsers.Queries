@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Anis.AccountUsers.Queries.Test.Protos";
+
+service AccountUsersQueries{
+	rpc GetAccountUsers (GetAccountUsersRequest) returns (GetAccountUsersResponse);
+
+}
+
+message GetAccountUsersRequest{
+	string account_id= 1;
+}
+
+message GetAccountUsersResponse{
+	string account_id= 1;
+	repeated string users =2;
+}

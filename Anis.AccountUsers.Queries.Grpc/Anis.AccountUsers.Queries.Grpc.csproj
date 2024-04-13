@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cec5d280-cfba-4b6f-b558-1675b92c0594</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\anis_account_users_queries.proto" />
+    <None Remove="Protos\anis_account_users_rebuilder.proto" />
+    <None Remove="Protos\Clients\anis_account_users_event_history.proto" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+    <PackageReference Include="Calzolari.Grpc.AspNetCore.Validation" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.0" />
+
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <ProjectReference Include="..\Anis.AccountUsers.Queries.Infra\Anis.AccountUsers.Queries.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\anis_account_users_queries.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\anis_account_users_rebuilder.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\Clients\anis_account_users_event_history.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+</Project>
